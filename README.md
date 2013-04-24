@@ -2,6 +2,26 @@
 
 Friendly command-line test runner and matchers for shell scripting in ruby using RSpec.
 
+## Installation
+
+With Bundler, add the following to your Gemfile:
+
+```ruby
+group :test do
+  gem "blue-shell"
+end
+```
+
+Then require and configure BlueShell in your `spec_helper.rb`:
+
+```ruby
+require 'blue-shell'
+
+RSpec.configure do |c|
+  c.include BlueShell::Matchers
+end
+```
+
 ## Credits
 
 BlueShell is maintained and funded by [Pivotal Labs](http://www.pivotallabs.com).
