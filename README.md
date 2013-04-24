@@ -31,7 +31,7 @@ Running a command by default times out after 5 seconds or raises a `Timeout::Err
 
 ```ruby
 BlueShell::Runner.run 'sleep 1' # success
-BlueShell::Runner.run 'sleep 5' # fails with Timeout::Error
+BlueShell::Runner.run 'sleep 6' # fails with Timeout::Error
 ```
 
 ## Credits
