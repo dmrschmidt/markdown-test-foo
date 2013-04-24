@@ -22,6 +22,18 @@ RSpec.configure do |c|
 end
 ```
 
+## Usage
+
+### Running commands
+
+Shell commands in BlueShell get executed by creating a new runner instance `BlueShell::Runner.run`.
+Running a command by default times out after 5 seconds or raises a `Timeout::Error`.
+
+```ruby
+BlueShell::Runner.run 'sleep 1' # success
+BlueShell::Runner.run 'sleep 5' # fails with Timeout::Error
+```
+
 ## Credits
 
 BlueShell is maintained and funded by [Pivotal Labs](http://www.pivotallabs.com).
