@@ -64,9 +64,10 @@ BlueShell::Runner.run 'read' do |runner|
 end
 ```
 
-### About timeouts
+### About timeouts...
 
-Within the run block you can call #wait_for_exit (default 5 seconds) if you want to make sure your command finishes within that time.
+Within the run block you can call `#wait_for_exit` (default 5 seconds) if you want to make sure your
+command finishes within that time.
 
 ```ruby
 BlueShell::Runner.run 'sleep 6' do |runner|
@@ -77,16 +78,19 @@ end
 It is important to note the difference between calling `.run` 'one-off' vs passing in a block:
 
 ```ruby
-# raises a Timeout::Error
-BlueShell::Runner.run 'sleep 6'
+# raises a Timeout::Error after 5 seconds
+BlueShell::Runner.run 'sleep 60'
 
 # succeeds
-BlueShell::Runner.run 'sleep 6' do |_|
+BlueShell::Runner.run 'sleep 60' do |_|
   # unless #wait_for_exit or #have_exit_code are invoked
   # your specs do not wait for the command to exit
   # and also do not fail if it never does
 end
 ```
+
+That being said, in most cases you probably want to invoke `#wait_for_exit` or `#have_exit_code`
+at the end of your block to ensure the command finishes.
 
 ## Credits
 
