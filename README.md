@@ -1,12 +1,11 @@
 # BlueShell [![Gem Version](https://badge.fury.io/rb/blue-shell.png)](http://badge.fury.io/rb/blue-shell)
 
-Friendly command-line test runner and matchers for shell scripting in ruby using rspec.
+Friendly command-line test runner and matchers for shell scripting in ruby using RSpec.
 
-Contributing
-------------
-* Fork the project
-* Make your feature addition or bug fix
-* Send me a pull request; bonus points for topic branches
+## Credits
+
+BlueShell is maintained and funded by [Pivotal Labs](http://www.pivotallabs.com).
+Thank you to all the [contributors](https://github.com/pivotal/blue-shell/contributors).
 
 Copyright
 ---------
