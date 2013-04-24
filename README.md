@@ -34,6 +34,28 @@ BlueShell::Runner.run 'sleep 1' # success
 BlueShell::Runner.run 'sleep 6' # fails with Timeout::Error
 ```
 
+### Expectations on exit codes
+
+```ruby
+BlueShell::Runner.run 'false' do |runner|
+  runner.should exit_with 1
+  runner.should have_exit_code 1 # #exit_with and #have_exit_code are aliases
+end
+```
+
+### Expectations on STDOUT
+
+```ruby
+BlueShell::Runner.run 'echo "foo bar"' do |runner|
+  runner.should say 'foo'
+  runner.should have_output 'bar' # #say and #have_output are aliases
+end
+```
+
+### Interacting with STDIN
+
+### Increasing the timeout
+
 ## Credits
 
 BlueShell is maintained and funded by [Pivotal Labs](http://www.pivotallabs.com).
