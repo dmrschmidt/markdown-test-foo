@@ -54,7 +54,39 @@ end
 
 ### Interacting with STDIN
 
-### Increasing the timeout
+```ruby
+BlueShell::Runner.run 'read' do |runner|
+  runner.send_keys 'foo'
+end
+
+BlueShell::Runner.run 'read' do |runner|
+  runner.send_return
+end
+```
+
+### About timeouts
+
+Within the run block you can call #wait_for_exit (default 5 seconds) if you want to make sure your command finishes within that time.
+
+```ruby
+BlueShell::Runner.run 'sleep 6' do |runner|
+  runner.wait_for_exit 7
+end
+```
+
+It is important to note the difference between calling `.run` 'one-off' vs passing in a block:
+
+```ruby
+# raises a Timeout::Error
+BlueShell::Runner.run 'sleep 6'
+
+# succeeds
+BlueShell::Runner.run 'sleep 6' do |_|
+  # unless #wait_for_exit or #have_exit_code are invoked
+  # your specs do not wait for the command to exit
+  # and also do not fail if it never does
+end
+```
 
 ## Credits
 
